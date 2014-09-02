@@ -1,8 +1,11 @@
 <?php
-include 'Printer.php';
+// Menambahkan autoloader
+spl_autoload_register(function ($class) {
+    include $class . '.php';
+});
+
 $printer = new Printer();
 $buku = $printer->cetakBuku('Menyelami Framework Laravel');
 
-include 'Kurir.php';
 $kurir = new Kurir();
 $kurir->kirim($buku, 'Bandung');
